@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="xxx" targetRuntime="MyBatis3Simple">
+        <commentGenerator>
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+        <!-- 配置数据库连接信息 -->
+        <jdbcConnection driverClass="org.mariadb.jdbc.Driver"
+                        connectionURL="jdbc:mariadb://localhost/augus"
+                        userId="root" password="love1314">
+        </jdbcConnection>
+        <!-- 实体类层 -->
+        <!-- targetPackage设置目标包 -->
+        <!-- targetProject配置目标项目，放的是绝对路径  -->
+        <javaModelGenerator targetPackage="org.lint.Entity" targetProject="E:\SSM\MyBatis\distribution\src\main\java">
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!-- 映射文件 -->
+        <sqlMapGenerator targetPackage="mapper"  targetProject="E:\SSM\MyBatis\distribution\src\main\resources"/>
+        <!-- DAO层 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.lint.DAO"  targetProject="E:\SSM\MyBatis\distribution\src\main\java"/>
+
+        <table tableName="%">
+            <generatedKey column="id" sqlStatement="Mysql"/>
+        </table>
+    </context>
+</generatorConfiguration>
